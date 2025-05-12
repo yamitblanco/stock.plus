@@ -1,0 +1,68 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del documento como español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el diseño responsivo para dispositivos móviles -->
+    <meta name="description" content="Sistema de gestión de inventarios accesible y fácil de usar."> <!-- Descripción de la página -->
+    <title>Sistema de Gestión de Inventarios</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Enlace a la hoja de estilos CSS -->
+
+</head>
+
+    <!-- Encabezado principal de la página -->
+    <header>    
+        <h1>Bienvenido a Stock .Plus<br> Tu software de gestión de inventarios</h1>
+    </header>
+    
+<body>
+
+    <nav id="mapanav_4"> <!-- Navegación principal de la página -->
+    <a href="{{ url_for('bienvenido') }}">Gestión de Inventario</a> <!-- Enlace a la sección de gestión de inventario -->
+    <a href="{{ url_for('informes') }}">Generación de Informes</a> <!-- Enlace a la sección de generación de informes -->
+    <a href="{{ url_for('contacto') }}">Contacto</a> <!-- Enlace a la sección de contacto dentro de la misma página -->
+    <a href="{{ url_for('inicio') }}">Cerrar sesión</a> <!-- Enlace para cerrar sesión -->
+</nav>
+
+<h2>Consulta de Productos</h2>
+<p>Resultados para el rango de fechas: {{ fecha_inicio }} - {{ fecha_fin }}</p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Número de Producto</th>
+            <th>Nombre del Producto</th>
+            <th>Estado</th>
+            <th>Ubicación</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Fecha de Registro</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if productos %}
+            {% for producto in productos %}
+                <tr>
+                    <td>{{ producto[0] }}</td>
+                    <td>{{ producto[1] }}</td>
+                    <td>{{ producto[2] }}</td>
+                    <td>{{ producto[3] }}</td>
+                    <td>{{ producto[4] }}</td>
+                    <td>{{ producto[5] }}</td>
+                    <td>{{ producto[6] }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="7">No se encontraron productos en este rango de fechas.</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+
+    <footer>
+        <p>&copy; 2024 Stock Plus</p>
+    </footer>
+
+</body>
+</html>

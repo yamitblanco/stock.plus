@@ -1,0 +1,69 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del documento como español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el diseño responsivo para dispositivos móviles -->
+    <meta name="description" content="Sistema de gestión de inventarios accesible y fácil de usar."> <!-- Descripción de la página -->
+    <title>Sistema de Gestión de Inventarios</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Enlace a la hoja de estilos CSS -->
+
+</head>
+
+    <!-- Encabezado principal de la página -->
+    <header>    
+        <h1>Bienvenido a Stock .Plus<br> Tu software de gestión de inventarios</h1>
+    </header>
+
+<body id="gestion-inventario"> <!-- Comienza el cuerpo del documento -->
+
+
+<nav id="mapanav_3"> <!-- Navegación principal de la página -->
+    <a href="{{ url_for('bienvenido') }}">Gestión de Inventario</a> <!-- Enlace a la sección de gestión de inventario -->
+    <a href="{{ url_for('informes') }}">Generación de Informes</a> <!-- Enlace a la sección de generación de informes -->
+    <a href="{{ url_for('contacto') }}">Contacto</a> <!-- Enlace a la sección de contacto dentro de la misma página -->
+    <a href="{{ url_for('inicio') }}">Cerrar sesión</a> <!-- Enlace para cerrar sesión -->
+</nav>
+
+<section id="manejo_inventario"> <!-- Sección dedicada a la gestión de inventario -->
+    <h2>Gestión de Inventario</h2> <!-- Título secundario de la sección -->
+
+    <form action="/registro_productos" method="POST" aria-label="Formulario de registro"> <!-- Formulario de registro de productos -->
+     <!-- Formulario para agregar productos -->
+        
+        <label for="product-id">ID del producto:</label> <!-- Etiqueta para el campo del ID del producto -->
+        <input type="text" id="numero_producto" name="numero_producto" required> <!-- Campo de entrada para el ID del producto -->
+
+        <label for="product-name">Nombre del producto:</label> <!-- Etiqueta para el campo del nombre del producto -->
+        <input type="text" id="nombre_producto" name="nombre_producto" required> <!-- Campo de entrada para el nombre del producto -->
+
+        <label for="status">Estado:</label> <!-- Etiqueta para el campo del estado -->
+        <select id="estado" name="estado" required> <!-- Campo de selección para el estado -->
+            <option value="" disabled selected>Selecciona un estado</option> <!-- Opción predeterminada -->
+            <option value="disponible">Disponible</option> <!-- Opción para estado disponible -->
+            <option value="agotado">Agotado</option> <!-- Opción para estado agotado -->
+            <option value="en camino">En camino</option> <!-- Opción para estado en camino -->
+        </select>
+
+        <label for="location">Ubicación:</label> <!-- Etiqueta para el campo de ubicación -->
+        <input type="text" id="ubicacion" name="ubicacion" required> <!-- Campo de entrada para la ubicación -->
+
+        <label for="quantity">Cantidad:</label> <!-- Etiqueta para el campo de cantidad -->
+        <input type="number" id="cantidad" name="cantidad" required> <!-- Campo de entrada numérico para la cantidad -->
+
+        <label for="price">Precio:</label> <!-- Etiqueta para el campo de precio -->
+        <input type="number" id="precio" name="precio" step="50" required> <!-- Campo de entrada numérico para el precio -->
+
+        <input type="submit" value="Agregar Producto"> <!-- Botón para enviar el formulario y agregar el producto -->
+
+        <input type="hidden" id="fecha_registro" name="fecha_registro">
+
+        
+    </form> <!-- Cierre del formulario -->
+</section> <!-- Cierre de la sección de gestión de inventario -->
+
+<footer> <!-- Pie de página -->
+    <p>© 2024 Sistema de Gestión de Inventarios</p> <!-- Texto de copyright -->
+</footer>
+</body>
+</html>

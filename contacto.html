@@ -1,0 +1,47 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del documento como español -->
+<head>
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Configura el diseño responsivo -->
+    <meta name="description" content="Sistema de gestión de inventarios accesible y fácil de usar."> <!-- Descripción de la página -->
+    <title>Sistema de Gestión de Inventarios</title> <!-- Título que aparecerá en la pestaña del navegador -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Enlace a la hoja de estilos CSS -->
+
+</head>
+<body> <!-- Comienza el cuerpo del documento -->
+    <header>    
+        <h1>Bienvenido a Stock .Plus<br> Tu software de gestión de inventarios</h1> <!-- Título principal -->
+    </header>
+
+    <nav id="mapanav_1"> <!-- Navegación principal -->
+        <a href="{{ url_for('bienvenido') }}">Gestión de Inventario</a> <!-- Enlace a la sección de gestión de inventario -->
+        <a href="{{ url_for('informes') }}">Generación de Informes</a> <!-- Enlace a la sección de generación de informes -->
+        <a href="{{ url_for('contacto') }}">Contacto</a> <!-- Enlace a la sección de contacto dentro de la misma página -->
+        <a href="{{ url_for('inicio') }}">Cerrar sesión</a> <!-- Enlace para cerrar sesión -->
+    </nav>
+
+    <main> <!-- Comienza la sección principal del contenido -->
+        <div> <!-- Contenedor general, aunque aquí puede no ser necesario -->
+            <section id="contact"> <!-- Sección dedicada al contacto -->
+                <h2>Contacto</h2> <!-- Título secundario de la sección -->
+                <form action="contact_submit.html" method="POST" aria-label="Formulario de contacto"> <!-- Formulario de contacto -->
+                    <label for="nombre">Nombre:</label> <!-- Etiqueta para el campo de nombre -->
+                    <input type="text" id="nombre" name="nombre" required> <!-- Campo de entrada para el nombre -->
+
+                    <label for="email">Correo electrónico:</label> <!-- Etiqueta para el campo de correo electrónico -->
+                    <input type="email" id="email" name="email" required> <!-- Campo de entrada para el correo electrónico -->
+
+                    <label for="mensaje">Mensaje:</label> <!-- Etiqueta para el campo de mensaje -->
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea> <!-- Área de texto para el mensaje -->
+
+                    <input type="submit" value="Enviar"> <!-- Botón para enviar el formulario -->
+                </form> <!-- Cierre del formulario -->
+            </section> <!-- Cierre de la sección de contacto -->
+        </div> <!-- Cierre del contenedor general -->
+    </main> <!-- Cierre de la sección principal -->
+
+    <footer> <!-- Pie de página -->
+        <p>© 2024 Sistema de Gestión de Inventarios</p> <!-- Texto de copyright -->
+    </footer>
+</body>
+</html>

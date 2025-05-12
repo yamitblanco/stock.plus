@@ -1,0 +1,72 @@
+<!-- Este documento HTML define una página de inicio de sesión para un sistema de gestión de inventarios llamado Stock .Plus -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración de codificación y metadatos básicos -->
+    <meta charset="UTF-8"> <!-- Define la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Asegura que el diseño sea responsivo -->
+    <meta name="description" content="Sistema de gestión de inventarios accesible y fácil de usar."> <!-- Breve descripción de la página -->
+    <title>Sistema de Gestión de Inventarios</title> <!-- Título que aparece en la pestaña del navegador -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body id="inicio">
+    <!-- Encabezado principal de la página -->
+    <header>    
+        <h1>Bienvenido a Stock .Plus<br> Tu software de gestión de inventarios</h1>
+    </header>
+
+    <!-- Barra de navegación con enlaces a diferentes secciones del sistema -->
+    <nav id="mapanav_1">
+        <a href="{{ url_for('inicio') }}">Iniciar Sesión</a>
+        <a href="{{ url_for('registro') }}">Registro</a>
+        <a href="{{ url_for('contactonoreg') }}">Contacto</a>
+    </nav>
+
+    <!-- Contenido principal de la página -->
+    <main>
+        <section id="inicio_sesion"> <!-- Sección dedicada al inicio de sesión -->
+            <h2>Iniciar Sesión</h2>
+            <div class="iniciov1">
+
+                <!-- Formulario para capturar las credenciales de inicio de sesión -->
+
+                <form method="POST" action="/inicio_sesion" aria-label="Formulario de inicio de sesión">
+
+
+                    <label for="email">email:</label>
+                    <input type="email" id="email" name="email" required> <!-- Campo para el nombre de usuario -->
+
+                    <label for="password">password:</label>
+                    <input type="password" id="contraseña" name="contraseña" required> <!-- Campo para la contraseña -->
+
+                    <div class="inicio_boton">
+                        <input type="submit" value="Iniciar Sesión"> <!-- Botón de envío del formulario -->
+                    </div>
+
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Enlaces adicionales para opciones secundarias -->
+    <div class="derecha">
+        <a href="#">¿Olvidaste tu contraseña?</a> <!-- Enlace para recuperación de contraseña -->
+    </div>
+    <div class="derecha">
+   
+        <a href="{{ url_for('registro') }}">Ir a Regístrate</a> <!-- Enlace al formulario de registro -->
+
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2024 Sistema de Gestión de Inventarios</p> <!-- Derechos reservados -->
+    </footer>
+
+
+</body>
+</html>
+
+
+
